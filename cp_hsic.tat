@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<TextAnalysisTool.NET version="2013-05-07" showOnlyFilteredLines="True">
+  <filters>
+    <filter enabled="y" excluding="n" type="matches_text" case_sensitive="n" regex="y" text="[CB_]*U(LD|SB)_[A-Z]+[:]*" />
+    <filter enabled="y" excluding="n" color="800080" type="matches_text" case_sensitive="n" regex="y" text="UsbSBBridgeC[ws]r" />
+    <filter enabled="y" excluding="n" color="ff0000" type="matches_text" case_sensitive="y" regex="y" text="EVENT_ARR_(RISE|FALL)" />
+    <filter enabled="y" excluding="n" color="7fff00" type="matches_text" case_sensitive="n" regex="y" text="CB_U[SBLD]*_DBGCBL_LIST_END" />
+    <filter enabled="y" excluding="n" color="0000ff" type="matches_text" case_sensitive="n" regex="y" text="EVENT_AWR_(RISE|FALL)" />
+    <filter enabled="y" excluding="n" color="d2691e" type="matches_text" case_sensitive="n" regex="y" text="EVENT_USB_(RESET|SUSPEND)" />
+    <filter enabled="y" excluding="n" color="008000" type="matches_text" case_sensitive="n" regex="y" text="EVENT_USB_[A-Z]+" />
+    <filter enabled="y" excluding="n" color="ff0000" type="matches_text" case_sensitive="n" regex="n" text="!!! MLD IDENTIFIED CORRUPT DATA IN LOG TRANSPORT PROTOCOL STREAM. LOGGING DATA LOST WHILE RECOVERING !!!" />
+    <filter enabled="y" excluding="n" color="00008b" type="matches_text" case_sensitive="n" regex="y" text="UsbSB: AP Initiated" />
+    <filter enabled="y" excluding="n" color="800080" type="matches_text" case_sensitive="n" regex="y" text="UsbSB: CP Initiated" />
+    <filter enabled="y" excluding="n" color="d2691e" type="matches_text" case_sensitive="n" regex="n" text="EVENT_ALLOW_SUSPEND" />
+    <filter enabled="y" excluding="n" color="008000" type="matches_text" case_sensitive="n" regex="n" text="EVENT_REMOTE_WAKE" />
+    <filter enabled="y" excluding="n" color="800000" type="matches_text" case_sensitive="n" regex="n" text="NetworkStatusChange" />
+    <filter enabled="y" excluding="n" type="matches_text" case_sensitive="n" regex="y" text="IPC_CALL_[OUTGINCM]+ING" />
+    <filter enabled="y" excluding="n" type="matches_text" case_sensitive="n" regex="n" text="SHORTMESSAGEROUTER_DELIVERREPORT_CONFIRM" />
+    <filter enabled="y" excluding="n" type="matches_text" case_sensitive="n" regex="y" text="[TR]x &lt;(SETUP|RP-DATA)&gt;" />
+    <filter enabled="y" excluding="n" color="0000ff" type="matches_text" case_sensitive="n" regex="y" text="BS_Log_Printf[ ]Debug[ ][[]RAMDISK[]]" />
+    <filter enabled="y" excluding="n" color="b22222" type="matches_text" case_sensitive="n" regex="n" text="Hibernation" />
+    <filter enabled="n" excluding="y" type="matches_text" case_sensitive="n" regex="n" text="**ERROR**" />
+  </filters>
+</TextAnalysisTool.NET>

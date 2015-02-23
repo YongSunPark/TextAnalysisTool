@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<TextAnalysisTool.NET version="2013-05-07" showOnlyFilteredLines="True">
+  <filters>
+    <filter enabled="y" excluding="n" type="matches_text" case_sensitive="n" regex="n" text="UsbHostManager" />
+  </filters>
+</TextAnalysisTool.NET>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<TextAnalysisTool.NET version="2013-05-07" showOnlyFilteredLines="True">
+  <filters>
+    <filter enabled="y" excluding="n" type="matches_text" case_sensitive="n" regex="y" text="[ED]* [[]*RIL[DS][]]*" />
+    <filter enabled="y" excluding="n" color="006400" type="matches_text" case_sensitive="n" regex="y" text="[ED]* [[]*RILD[]]*[ :]*Nv::" />
+    <filter enabled="y" excluding="n" color="ff00ff" type="matches_text" case_sensitive="y" regex="n" text="SCREEN_OFF" />
+    <filter enabled="y" excluding="n" color="dc143c" type="matches_text" case_sensitive="n" regex="y" text="(crash|timeout|failure|Modem Not Responding)" />
+    <filter enabled="y" excluding="n" color="800080" type="matches_text" case_sensitive="n" regex="y" text="[ED] [[]*boot[]]*" />
+    <filter enabled="n" excluding="y" type="matches_text" case_sensitive="n" regex="y" text="(GsmSST|DC-1|DCT|DCC)" />
+  </filters>
+</TextAnalysisTool.NET>

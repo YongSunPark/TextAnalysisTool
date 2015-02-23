@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<TextAnalysisTool.NET version="2013-05-07" showOnlyFilteredLines="True">
+  <filters>
+    <filter enabled="y" excluding="n" type="matches_text" case_sensitive="n" regex="y" text=" (BS_BufMan|BS_log|sys_sw_id|sys_sw_customized_version)" />
+    <filter enabled="y" excluding="n" color="0000ff" type="matches_text" case_sensitive="n" regex="y" text="Log_RMM_ConfigureMaskFromFile" />
+    <filter enabled="y" excluding="n" color="ff0000" type="matches_text" case_sensitive="n" regex="y" text="BS_Log_.* Failed" />
+    <filter enabled="y" excluding="n" color="ff0000" type="matches_text" case_sensitive="n" regex="y" text="OVERFLOW" />
+    <filter enabled="y" excluding="n" color="b22222" type="matches_text" case_sensitive="n" regex="y" text="(LogRouter_LogR_CallbackFuncList|LogRouter_RegisterOutputChannelChangedCallback)" />
+    <filter enabled="y" excluding="n" color="006400" type="matches_text" case_sensitive="n" regex="y" text=" (BS_Log_RMM|LogRouter_)" />
+    <filter enabled="y" excluding="y" type="matches_text" case_sensitive="n" regex="y" text=" Debug (EOP|[ ]+)" />
+  </filters>
+</TextAnalysisTool.NET>

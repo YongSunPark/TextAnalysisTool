@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<TextAnalysisTool.NET version="2013-05-07" showOnlyFilteredLines="True">
+  <filters>
+    <filter enabled="y" excluding="n" type="matches_text" case_sensitive="n" regex="y" text="BS_GDFS[ ]*" />
+    <filter enabled="y" excluding="n" color="5f9ea0" type="matches_text" case_sensitive="n" regex="y" text="BS_GDFS .* Switching mode" />
+    <filter enabled="y" excluding="n" color="dc143c" type="matches_text" case_sensitive="n" regex="y" text="BS_GDFS .* WriteUnit:" />
+    <filter enabled="y" excluding="n" color="dc143c" type="matches_text" case_sensitive="n" regex="n" text="BS_Log_Printf Debug [RAMDISK] ramdisk_write: " />
+    <filter enabled="y" excluding="n" color="ff0000" type="matches_text" case_sensitive="n" regex="y" text="BS_GDFS .* failed" />
+    <filter enabled="y" excluding="n" color="006400" type="matches_text" case_sensitive="n" regex="y" text="[[]QSTORE[] ]+" />
+    <filter enabled="y" excluding="n" color="7fff00" type="matches_text" case_sensitive="n" regex="n" text="BS_Log_Printf Debug [RAMDISK] ramdisk_rfs_sync_volumes_start" />
+    <filter enabled="y" excluding="n" color="0000ff" type="matches_text" case_sensitive="n" regex="y" text="BS_Log_Printf[ ]Debug[ ][[]RAMDISK[]]" />
+    <filter enabled="n" excluding="n" color="d2691e" type="matches_text" case_sensitive="n" regex="y" text="Info[ ][[]RFS[]]" />
+    <filter enabled="y" excluding="n" type="matches_text" case_sensitive="n" regex="y" text="BS_IDBG[ ]Debug[ ][[]IDBG[]]" />
+    <filter enabled="y" excluding="n" color="ff0000" type="matches_text" case_sensitive="n" regex="y" text="[ ]Error[ ]" />
+    <filter enabled="y" excluding="n" color="fa8072" type="matches_text" case_sensitive="n" regex="y" text="[ ]Warning[ ]" />
+    <filter enabled="y" excluding="n" color="000000" type="matches_text" case_sensitive="n" regex="y" text="DA_OEM_SIPC (Debug|Info) OEM_CONTROLLER" />
+    <filter enabled="y" excluding="y" type="matches_text" case_sensitive="n" regex="n" text="DA_IP_" />
+    <filter enabled="y" excluding="n" type="matches_text" case_sensitive="n" regex="n" text="OEM_CONTROLLER" />
+    <filter enabled="y" excluding="y" type="matches_text" case_sensitive="n" regex="y" text="DA_OEM_SIPC Debug OEM_CONTROLLER: data[[0-9]*" />
+    <filter enabled="y" excluding="n" type="matches_text" case_sensitive="n" regex="y" text="(RAMDISK|ModelConfig|FSUTIL|mount|volume|JEFF|RFM)" />
+  </filters>
+</TextAnalysisTool.NET>

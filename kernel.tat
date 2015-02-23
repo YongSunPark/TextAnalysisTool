@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<TextAnalysisTool.NET version="2013-05-07" showOnlyFilteredLines="True">
+  <filters>
+    <filter enabled="y" excluding="n" type="matches_text" case_sensitive="n" regex="y" text="[ ](cbd|mif|init|cdc_|if_usb_probe)[: ]*" />
+    <filter enabled="y" excluding="n" type="matches_text" case_sensitive="y" regex="y" text="(muic|usb[:]*|hub |MUIC|UsbService host|s5p[-_][aemouwx]hci|usb2phy|max77[0-9]3|UTC)" />
+    <filter enabled="y" excluding="n" color="ff0000" type="matches_text" case_sensitive="n" regex="y" text="([ac]p_dump_int: [10])" />
+    <filter enabled="y" excluding="n" color="7fff00" type="matches_text" case_sensitive="y" regex="n" text="Start CP Boot Daemon (CBD)" />
+    <filter enabled="y" excluding="n" color="00ff00" type="matches_text" case_sensitive="y" regex="n" text="start_ipc: sending 'a' to start ipc" />
+    <filter enabled="y" excluding="n" color="ffa500" type="matches_text" case_sensitive="n" regex="y" text="(DataBufferErr|SIPC5 wrong CFG|pkt\(iod=umts_dm0\) dropped)" />
+    <filter enabled="y" excluding="n" color="dc143c" type="matches_text" case_sensitive="n" regex="y" text="[ ](timeout|cp_crash|fail|can't resume)" />
+    <filter enabled="y" excluding="n" color="0000ff" type="matches_text" case_sensitive="n" regex="y" text="AP init'ed L[23]" />
+    <filter enabled="y" excluding="n" color="800080" type="matches_text" case_sensitive="n" regex="y" text="CP init'ed L[23]" />
+    <filter enabled="y" excluding="n" color="ff0000" type="matches_text" case_sensitive="n" regex="y" text="recovery[: 0-9]" />
+    <filter enabled="y" excluding="n" color="800000" type="matches_text" case_sensitive="n" regex="n" text="link_usb_cdc_ncm" />
+    <filter enabled="y" excluding="n" color="dc143c" type="matches_text" case_sensitive="n" regex="y" text="mif[:a-z_ ]* Public ID: " />
+    <filter enabled="y" excluding="n" color="ff0000" type="matches_text" case_sensitive="y" regex="y" text="(EHCI turn o[nf]+|IOCTL_MODEM_O[NF]+)" />
+    <filter enabled="y" excluding="n" color="d2691e" type="matches_text" case_sensitive="n" regex="y" text="[ ]m[ml]d[: ]+" />
+    <filter enabled="y" excluding="n" color="00008b" type="matches_text" case_sensitive="n" regex="y" text="(link_pm_hostwake_handler|IRQ 691)" />
+    <filter enabled="y" excluding="n" color="800080" type="matches_text" case_sensitive="n" regex="y" text="(link_pm_cp_suspend_ready_handler|wait_cp_suspend_ready|wait_cp2ap_status_value)" />
+    <filter enabled="y" excluding="n" color="daa520" type="matches_text" case_sensitive="n" regex="y" text="link_pm_[a-z]+" />
+    <filter enabled="y" excluding="n" color="b22222" type="matches_text" case_sensitive="n" regex="y" text="decon_power_thr" />
+    <filter enabled="y" excluding="n" color="ff00ff" type="matches_text" case_sensitive="y" regex="n" text="Screen__Off" />
+    <filter enabled="y" excluding="y" type="matches_text" case_sensitive="n" regex="n" text="binder:" />
+    <filter enabled="y" excluding="n" type="matches_text" case_sensitive="n" regex="y" text="(sec_bat_get_battery_info|low_batt_alarm|sec_bat_[bm])" />
+  </filters>
+</TextAnalysisTool.NET>

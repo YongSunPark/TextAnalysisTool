@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<TextAnalysisTool.NET version="2013-05-07" showOnlyFilteredLines="True">
+  <filters>
+    <filter enabled="y" excluding="n" type="matches_text" case_sensitive="n" regex="y" text=" [[]*(MTB|MLD|MMD|DIP|BRIDGE_RELAY|DataRouter|PowerManagerService)[]]*" />
+    <filter enabled="y" excluding="n" type="matches_text" case_sensitive="n" regex="y" text="(ActivityManager|InputTransport|SurfaceFlinger)*modemtoolbox" />
+    <filter enabled="y" excluding="n" color="ff00ff" type="matches_text" case_sensitive="y" regex="n" text="Screen__Off" />
+    <filter enabled="y" excluding="n" color="b22222" type="matches_text" case_sensitive="n" regex="n" text="mmd_callback" />
+    <filter enabled="y" excluding="n" color="0000ff" type="matches_text" case_sensitive="n" regex="n" text="logdevice_send_connect" />
+    <filter enabled="y" excluding="n" color="ffa500" type="matches_text" case_sensitive="n" regex="y" text="[EW] [[]*(MTB|MLD|MMD|DIP|BRIDGE_RELAY|DataRouter)[]]*" />
+    <filter enabled="y" excluding="n" color="ff0000" type="matches_text" case_sensitive="n" regex="y" text="(DEBUG|crash|timeout|failure|Modem Not Responding)" />
+    <filter enabled="y" excluding="n" color="ff0000" type="matches_text" case_sensitive="n" regex="y" text="[0-9][ ][WEF][ ](DataRouter|MTPRx|libc|SMD)" />
+    <filter enabled="y" excluding="y" type="matches_text" case_sensitive="n" regex="n" text="ERROR: LTP Stream Failure" />
+    <filter enabled="n" excluding="y" type="matches_text" case_sensitive="n" regex="n" text="Broken LTP Packet found" />
+    <filter enabled="y" excluding="y" type="matches_text" case_sensitive="y" regex="y" text="(CustomFrequencyManager|DVFSHelper|WindowManager|RCPManagerService|InCall|poll_schedule_timeout|AMMetaDataParserService|wpa_supplicant|bt-hci|NfcNfa|MmsConfig)" />
+  </filters>
+</TextAnalysisTool.NET>
