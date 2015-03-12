@@ -1,0 +1,98 @@
+TextAnalysisTool History
+========================
+
+
+2000-7-18
+Initial release
+
+
+2000-7-26
+BUG FIX: Extremely rare Access Violation when pasting text or opening a file.
+BUG FIX: User can scroll text display left/right with arrow keys when the
+         horizontal scrollbar is not present.
+
+
+2000-9-19
+WORK AROUND: Changed the use of the DrawTextEx API to address a Windows 95/98
+             limitation and to work around bugs in many Windows 2000 display
+             drivers.
+* Added Refresh option (File | Refresh or F5) to refresh the view of the
+  current file.
+* Added support for F2 as another way of repeating the last find (searching
+  backward).
+* Updated to the latest version of the RegExpr regular expression source
+  code.
+
+
+2000-12-22
+* New Feature: Added an option to turn any filter into an excluding filter.
+  Excluding filters are configured just like normal filters but are processed
+  after all of the normal filters have already been run.  The effect of an
+  excluding filter is to remove all lines that meet its criteria from the
+  collection of filtered lines.  Excluding filters allow you to easily reduce
+  the output from an overly active inclusive filter.  (Because of this
+  change, configuration files created by this version of TextAnalysisTool
+  will not be usable with previous versions of the program.)
+* New Feature: TextAnalysisTool remembers the position of its window when
+  closed and will return to that position when opened the next time. 
+* New Feature: Added a "Documentation" item to the "Help" menu; selecting this
+  item will display a copy of the TextAnalysisTool documentation in a new
+  window.
+* Performance: Slightly reduced the memory and CPU requirements for processing
+  filters.
+* Code size: Modified the implementations of the "contains text" and "matches
+  regular expression" filters to enable them to share more common code.
+* Tweak: TextAnalysisTool will now display the full file name of files opened
+  with their short 8.3 file names.
+* Bug fixes: Various other minor improvements.
+
+
+2001-1-4
+* Performance: Rewrote the code responsible for running all inclusive and
+  exclusive filters and generating the resulting subset of lines.  The new
+  implementation is only slightly more efficient for inclusive filters but
+  dramatically more efficient for exclusive filters.
+* Performance: Changed the implementation of the line-in-set searching code
+  for a noticeable performance improvement when displaying and collecting lines
+  (e.g., when copying lines to the clipboard).
+
+
+2001-2-5
+* BUGFIX: Files containing lines ending with CR (0x13) but no LF (0x10) would
+  have the last characters of the file truncated (one character truncated for
+  each occurrence of CR without LF).
+* BUGFIX: When marking an unfiltered line in the presence of an inclusive
+  filter for that marker type, the line would not change color to indicate that
+  it was now a filtered line.
+* Performance: Modified internal helper class to expose performance-oriented
+  versions of common methods.
+* Performance: Change internal implementation to use a separate heap when
+  allocating memory for lines and their data.  This private heap avoids
+  contention with the default process heap, delivers significantly better
+  allocation performance than the default process heap, and avoids memory
+  fragmentation problems seen when using the default process heap.
+* Performance: Reduced resource contention when running multiple filter threads
+  at the same time.
+* Updated to the latest version of RegExpr.
+* Tweak: Various other minor improvements.
+
+
+2001-7-17
+* BUGFIX: The following scenario incorrectly set the current line to the top of
+  the text display: load a file, mark a few lines with a marker, add a marked
+  by marker filter for that marker, show only filtered lines, clear the marker
+  from any of the lines other than the topmost one.
+* BUGFIX: The following scenario incorrectly centered the current line: open a
+  [specific] file, load a [specific] filter set, set the current line to line
+  1336, enable the first four filters, show only filtered lines.
+* Added more descriptive text (based on the GetLastError/FormatMessage APIs)
+  to error dialog boxes whenever possible.
+* Added try/catch wrappers around memory-mapped file operations to protect
+  against page faults if there are any problems reading the file data (disk
+  removed, network connection broken, etc.).
+* Ran PreFAST and fixed a couple of problems it found.
+* Updated to the latest version of RegExpr.
+
+
+2001-12-28
+* BUGFIX: Fixed a regression whereby 0-byte files could not be opened.

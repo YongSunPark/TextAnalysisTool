@@ -1,0 +1,307 @@
+<html>
+ <head>
+  <title>TextAnalysisTool Documentation</title>
+  <style type="text/css">
+   <!--
+   BODY { font-family:"Arial" }
+   .Title { font-size:"150%" ; font-weight:bold ; text-decoration:underline }
+   .Heading { font-size:"110%" ; font-weight:bold ; text-decoration:underline }
+   .SubHeading { font-style:italic }
+   .Function { text-decoration:underline }
+   .Details { font-size:75% }
+   .Computer { font-family:"Courier New" }
+   TR { vertical-align:top }
+   UL { margin-top:0 ; margin-bottom:0 }
+   -->
+  </style>
+ </head>
+ <body>
+  <div align=center>
+   <div class=Title>TextAnalysisTool Documentation</div>
+   <br>
+   David Anson (<a href="mailto:DavidAns@Microsoft.com">DavidAns@Microsoft.com</a>)<br>
+   December 28<sup>th</sup>, 2001
+  <br><br><br>
+  <a href="#S_Overview" class=Details>Overview</a> - 
+  <nobr><a href="#S_Display" class=Details>The Display</a></nobr> - 
+  <nobr><a href="#S_MenuItems" class=Details>Menu Items</a></nobr> - 
+  <nobr><a href="#S_MouseActions" class=Details>Mouse Actions</a></nobr> - 
+  <nobr><a href="#S_ShortcutKeys" class=Details>Shortcut Keys</a></nobr> - 
+  <nobr><a href="#S_FunctionDescriptions" class=Details>Function Descriptions</a></nobr> - 
+  <nobr><a href="#S_RegularExpressionSyntax" class=Details>Regular Expression Syntax</a></nobr> - 
+  <nobr><a href="#S_CommandLine" class=Details>Command-Line Parameters</a></nobr> - 
+  <nobr><a href="#S_RegistrySettings" class=Details>Registry Settings</a></nobr> - 
+  <nobr><a href="#S_FAQ" class=Details>FAQ</a></nobr> - 
+  <nobr><a href="#S_TipsTricks" class=Details>Tips and Tricks</a></nobr> - 
+  <nobr><a href="#S_PlannedFeatures" class=Details>Planned Features</a></nobr> - 
+  <nobr><a href="#S_KnownIssues" class=Details>Known Issues</a></nobr> - 
+  <nobr><a href="#S_BugReports" class=Details>Bug Reports</a></nobr>
+  </div>
+  <br><br>
+  <a name="S_Overview"></a>
+  <div class=Heading>Overview</div>
+  <br>
+  <div class=SubHeading>The Problem</div>
+  For applications that produce a great deal of textual output, finding a particular line of interest can be quite difficult.
+  Standard text editors usually provide some sort of "find" functionality, but that limited capability can be inadequate when it is necessary to compare two or more widely separated lines.
+  Some of the more sophisticated editors help by allowing you to "mark" lines of interest (often by placing a bookmark at that location in the file).
+  Marking lines can be a tremendous help, but is often not enough.
+  <br><br>
+  <div class=SubHeading>The Solution: TextAnalysisTool</div>
+  For times when nothing else will do the trick, there's TextAnalysisTool - a program designed from the start to excel at viewing, searching, and navigating text files as quickly and efficiently as possible.
+  TextAnalysisTool provides a view of the text file that you can manipulate (through the use of various filters) to display exactly the information you need.
+  <br><br>
+  <div class=SubHeading>Filters</div>
+  Before displaying the lines of a file, TextAnalysisTool runs the lines of that file through a set of user-defined filters, removing or dimming any lines that do not satisfy one of the filters.
+  (In other words, TextAnalysisTool displays the union of the lines accepted by each filter.)
+  Filters can do such things as select only the lines that contain a given sub-string, select only the lines that have been marked with a particular marker type, or select only the lines that match a given regular expression.
+  In addition to the standard "inclusive" filters that isolate lines of text you want to see, there are also "exclusive" filters that can be used to suppress lines you do not want to see.
+  Excluding filters are configured just like normal filters but are processed after all normal filters have already been run.
+  The effect of an excluding filter is to remove all lines that meet its criteria from the collection of filtered lines.
+  Excluding filters allow you to easily reduce the output from an overly active inclusive filter.
+  <br><br>
+  <div class=SubHeading>Markers</div>
+  Markers are another way that TextAnalysisTool makes it easy to navigate a file; TextAnalysisTool allows you to mark a line with one or more of nine different marker types.
+  Once lines have been marked, TextAnalysisTool allows you to easily view only marked lines or quickly navigate between similarly marked lines.
+  <br><br>
+  <div class=SubHeading>Find</div>
+  TextAnalysisTool also provides a flexible "find" function that allows you to search for text anywhere within a file.
+  This text can be a literal string or a regular expression, so it's easy to locate the specific line you seek.
+  <br><br>
+  <div class=SubHeading>Ease of Use</div>
+  TextAnalysisTool was written with overall speed in mind:
+  it saves you time by allowing you to save and load filter sets;
+  text can be input to TextAnalysisTool by opening a file, dragging-and-dropping a file onto the TextAnalysisTool window, or by pasting text from the clipboard; you can even share the results of your filters by copying lines to the clipboard or by saving the current set of lines to a file.
+  <br><br><br>
+  <a name="S_Display"></a>
+  <div class=Heading>The Display</div>
+  <br>
+  The TextAnalysisTool display is divided into two different sections:
+  <br><br>
+  <div class=SubHeading>Text Display</div>
+  The text display portion of the TextAnalysisTool window displays the lines with which you are currently working.
+  Along with the line's original line number, TextAnalysisTool will indicate which markings have been applied to that line as well as whether or not the line meets any of the current filter criteria (by dimming undesired lines).
+  The text display highlights the current line (the line to which any changes (e.g., markings) will be made) and allows you to navigate using the standard directional controls (arrows, Page Up, scroll-bars, etc.).
+  The primary mouse button allows you to quickly change the current line, while the secondary mouse button gives you access to a menu with line-specific functionality (such as setting markers).
+  <br><br>
+  <div class=SubHeading>Filter Display</div>
+  The filter display portion of the TextAnalysisTool window displays the filters with which you are currently working.
+  Filters can be enabled or disabled simply by clicking on them with the primary mouse button; when disabled, filters are dimmed.
+  Further functionality is available with the secondary mouse button which gives you access to a menu with filter-specific functionality (such as editing, moving, or removing a filter).
+  <br><br>
+  <div class=SubHeading>Splitter Bar</div>
+  The splitter bar allows you to resize the text and filter displays within the TextAnalysisTool window.
+  Changes are remembered the next time you start TextAnalysisTool.
+  <br><br><br>
+  <a name="S_MenuItems"></a>
+  <div class=Heading>Menu Items</div>
+  <table border=0>
+   <tr> <td align=right><b>Menu</b></td> <td>&nbsp;&nbsp;</td> <td><b>Item</b></td> <td>&nbsp;&nbsp;</td> <td><b>Function</b></td> </tr>
+   <tr> <td>File</td> <td></td> <td></td> <td></td> <td></td> </tr>
+   <tr> <td></td> <td></td> <td>Open...</td> <td></td> <td>Open and display a text file <a href="#FD_OpenText" class=Details>(Details)</a></td> </tr>
+   <tr> <td></td> <td></td> <td>Refresh</td> <td></td> <td>Refresh the view of the file <a href="#FD_RefreshText" class=Details>(Details)</a></td> </tr>
+   <tr> <td></td> <td></td> <td>Save Current Lines...</td> <td></td> <td>Save the currently displayed lines to a text file <a href="#FD_SaveText" class=Details>(Details)</a></td> </tr>
+   <tr> <td></td> <td></td> <td>Open Configuration...</td> <td></td> <td>Open a configuration file and apply its settings <a href="#FD_OpenConfiguration" class=Details>(Details)</a></td> </tr>
+   <tr> <td></td> <td></td> <td>Save Configuration...</td> <td></td> <td>Save the current configuration to a configuration file <a href="#FD_SaveConfiguration" class=Details>(Details)</a></td> </tr>
+   <tr> <td></td> <td></td> <td>Exit</td> <td></td> <td>Exit the application</td> </tr>
+   <tr> <td>Edit</td> <td></td> <td></td> <td></td> <td></td> </tr>
+   <tr> <td></td> <td></td> <td>Copy</td> <td></td> <td>Copy the currently displayed lines to the clipboard <a href="#FD_Copy" class=Details>(Details)</a></td> </tr>
+   <tr> <td></td> <td></td> <td>Copy Current Line</td> <td></td> <td>Copy the current line to the clipboard <a href="#FD_CopyLine" class=Details>(Details)</a></td> </tr>
+   <tr> <td></td> <td></td> <td>Paste</td> <td></td> <td>Paste text from clipboard into the display <a href="#FD_Paste" class=Details>(Details)</a></td> </tr>
+   <tr> <td></td> <td></td> <td>Find...</td> <td></td> <td>Find the next occurrence of a string <a href="#FD_Find" class=Details>(Details)</a></td> </tr>
+   <tr> <td></td> <td></td> <td>Find Next</td> <td></td> <td>Repeat the last find operation (searching forward)</td> </tr>
+   <tr> <td></td> <td></td> <td>Find Previous</td> <td></td> <td>Repeat the last find operation (searching backward)</td> </tr>
+   <tr> <td></td> <td></td> <td>Go To...</td> <td></td> <td>Set the current line to a specific line number <a href="#FD_GoTo" class=Details>(Details)</a></td> </tr>
+   <tr> <td>View</td> <td></td> <td></td> <td></td> <td></td> </tr>
+   <tr> <td></td> <td></td> <td>Show Only Filtered Lines</td> <td></td> <td>Toggle showing/hiding of lines that do not meet the filter criteria <a href="#FD_ShowOnlyFiltered" class=Details>(Details)</a></td> </tr>
+   <tr> <td>Filter</td> <td></td> <td></td> <td></td> <td></td> </tr>
+   <tr> <td></td> <td></td> <td>Add Filter...</td> <td></td> <td>Add a filter <a href="#FD_AddFilter" class=Details>(Details)</a></td> </tr>
+   <tr> <td></td> <td></td> <td>Disable All Filters</td> <td></td> <td>Disable all filters in the filter list <a href="#FD_DisableFilters" class=Details>(Details)</a></td> </tr>
+   <tr> <td></td> <td></td> <td>Remove All Filters</td> <td></td> <td>Remove all filters from the filter list <a href="#FD_RemoveFilters" class=Details>(Details)</a></td> </tr>
+   <tr> <td>Help</td> <td></td> <td></td> <td></td> <td></td> </tr>
+   <tr> <td></td> <td></td> <td>Documentation</td> <td></td> <td>Displays a copy of the TextAnalysisTool documentation in a new window</td> </tr>
+   <tr> <td></td> <td></td> <td>About</td> <td></td> <td>Display information about the application</td> </tr>
+  </table>
+  <br><br>
+  <a name="S_MouseActions"></a>
+  <div class=Heading>Mouse Actions</div>
+  <br>
+  <div class=SubHeading>Text Display</div>
+  <table border=0>
+   <tr> <td align=right><b>Action</b></td> <td>&nbsp;&nbsp;</td> <td><b>Function</b></td> </tr>
+   <tr> <td align=right>Click primary button</td> <td></td> <td>Sets the current line to the clicked-on line</td> </tr>
+   <tr> <td align=right>Click secondary button</td> <td></td> <td>Opens a context menu that lets you enable or disable markers for the clicked-on line</td> </tr>
+   <tr> <td align=right>Rotate mouse wheel</td> <td></td> <td>Scrolls the text display according to the current system settings</td> </tr>
+   <tr> <td>&nbsp;</td> <td></td> <td><b></b></td> </tr>
+   <tr> <td><div class=SubHeading>Filter Display</div></td> <td></td> <td><b></b></td> </tr>
+   <tr> <td align=right><b>Action</b></td> <td>&nbsp;&nbsp;</td> <td><b>Function</b></td> </tr>
+   <tr> <td align=right>Click primary button</td> <td></td> <td>Enables/disables the clicked-on filter</td> </tr>
+   <tr> <td align=right>Click secondary button</td> <td></td> <td>Opens a context menu that lets you enable, disable, reorder, edit, or remove the clicked-on filter </td> </tr>
+   <tr> <td align=right>Rotate mouse wheel</td> <td></td> <td>Scrolls the filter display according to the current system settings</td> </tr>
+   <tr> <td>&nbsp;</td> <td></td> <td><b></b></td> </tr>
+   <tr> <td><div class=SubHeading>Splitter Bar</div></td> <td></td> <td><b></b></td> </tr>
+   <tr> <td align=right><b>Action</b></td> <td>&nbsp;&nbsp;</td> <td><b>Function</b></td> </tr>
+   <tr> <td align=right>Click-and-drag primary button</td> <td></td> <td>Resizes the text and filter displays</td> </tr>
+  </table>
+  <br><br>
+  <a name="S_ShortcutKeys"></a>
+  <div class=Heading>Shortcut Keys</div>
+  <table border=0>
+   <tr> <td align=right><b>Key</b></td> <td>&nbsp;&nbsp;</td> <td><b>Function</b></td> </tr>
+   <tr> <td align=right>Ctrl+A</td> <td></td> <td>Add a filter <a href="#FD_AddFilter" class=Details>(Details)</a></td> </tr>
+   <tr> <td align=right>Ctrl+C</td> <td></td> <td>Copy the currently displayed lines to the clipboard <a href="#FD_Copy" class=Details>(Details)</a></td> </tr>
+   <tr> <td align=right>Ctrl+F</td> <td></td> <td>Find the next occurrence of a string <a href="#FD_Find" class=Details>(Details)</a></td> </tr>
+   <tr> <td align=right>Shift+Ctrl+F</td> <td></td> <td>Find the next occurrence of a string searching backward <a href="#FD_Find" class=Details>(Details)</a></td> </tr>
+   <tr> <td align=right>Ctrl+G</td> <td></td> <td>Set the current line to a specific line number <a href="#FD_GoTo" class=Details>(Details)</a></td> </tr>
+   <tr> <td align=right>Ctrl+H</td> <td></td> <td>Toggle showing/hiding of lines that do not meet the filter criteria <a href="#FD_ShowOnlyFiltered" class=Details>(Details)</a></td> </tr>
+   <tr> <td align=right>Ctrl+L</td> <td></td> <td>Copy the current line to the clipboard <a href="#FD_CopyLine" class=Details>(Details)</a></td> </tr>
+   <tr> <td align=right>Ctrl+O</td> <td></td> <td>Open and display a text file <a href="#FD_OpenText" class=Details>(Details)</a></td> </tr>
+   <tr> <td align=right>Ctrl+S</td> <td></td> <td>Save the currently displayed lines to a text file <a href="#FD_SaveText" class=Details>(Details)</a></td> </tr>
+   <tr> <td align=right>Ctrl+V</td> <td></td> <td>Paste text from clipboard into the display <a href="#FD_Paste" class=Details>(Details)</a></td> </tr>
+   <tr> <td align=right>Space</td> <td></td> <td>Set the current line to the next line that meets the filter criteria</td> </tr>
+   <tr> <td align=right>Shift+Space</td> <td></td> <td>Set the current line to the previous line that meets the filter criteria</td> </tr>
+   <tr> <td align=right>1, 2, ..., 9</td> <td></td> <td>Set the current line to the next line marked by marker type <i>n</i> (ignores the current filter criteria)</td> </tr>
+   <tr> <td align=right>Shift+1, 2, ..., 9</td> <td></td> <td>Set the current line to the previous line marked by marker type <i>n</i> (ignores the current filter criteria)</td> </tr>
+   <tr> <td align=right>Ctrl+1, 2, ..., 9</td> <td></td> <td>Toggle marker type <i>n</i> for the current line</td> </tr>
+   <tr> <td align=right>F3</td> <td></td> <td>Repeats the last find operation (searching forward)</td> </tr>
+   <tr> <td align=right>F2 or Shift+F3</td> <td></td> <td>Repeats the last find operation (searching backward)</td> </tr>
+   <tr> <td align=right>F5</td> <td></td> <td>Refresh the view of the file <a href="#FD_RefreshText" class=Details>(Details)</a></td> </tr>
+   <tr> <td align=right>Up/Down Arrow</td> <td></td> <td>Move the current line up/down</td> </tr>
+   <tr> <td align=right>Ctrl+Up/Down Arrow</td> <td></td> <td>Scroll up/down without changing the current line</td> </tr>
+   <tr> <td align=right>Left/Right Arrow</td> <td></td> <td>Scroll left/right one character</td> </tr>
+   <tr> <td align=right>Home/End</td> <td></td> <td>Scroll to the extreme left/right of the display</td> </tr>
+   <tr> <td align=right>Ctrl+Home/End</td> <td></td> <td>Move the current line to the extreme top/bottom of the display</td> </tr>
+   <tr> <td align=right>Page Up/Down</td> <td></td> <td>Scroll up/down a page without changing the current line</td> </tr>
+  </table>
+  <br><br>
+  <a name="S_FunctionDescriptions"></a>
+  <div class=Heading>Function Descriptions</div>
+  <br>
+  <a name="FD_OpenText"></a>
+  <div class=Function>Open and display a text file</div>
+  Discards the current set of lines and displays the lines of the specified text file after running the currently enabled filters on the entire file.
+  <br><br>
+  <a name="FD_RefreshText"></a>
+  <div class=Function>Refresh the view of the file</div>
+  Reloads the current file. This command makes it easy to re-analyze files that have changed since being opened.
+  <br><br>
+  <a name="FD_SaveText"></a>
+  <div class=Function>Save the currently displayed lines to a text file</div>
+  Saves the currently displayed lines to a file, including information about line number and whether or not each line meets the filter criteria.
+  Note that any lines that are not being displayed (because they do not meet the filter criteria and you've chosen not to display such lines) will not be saved to the file.
+  <br><br>
+  <a name="FD_OpenConfiguration"></a>
+  <div class=Function>Open a configuration file and apply its settings</div>
+  Opens a TextAnalysisTool configuration file, replacing any existing filters with the filters stored in the configuration file and running any new filters that are enabled.
+  <br><br>
+  <a name="FD_SaveConfiguration"></a>
+  <div class=Function>Save the current configuration to a configuration file</div>
+  Saves a TextAnalysisTool configuration file, storing the state of all current filters.
+  <br><br>
+  <a name="FD_Copy"></a>
+  <div class=Function>Copy the currently displayed lines to the clipboard</div>
+  Copies the currently displayed lines to the clipboard, using the same format as when saving the current lines to a file. <a href="#FD_SaveText" class=Details>(Details on the format)</a>
+  <br><br>
+  <a name="FD_CopyLine"></a>
+  <div class=Function>Copy the current line to the clipboard</div>
+  Copies the text of the current line to the clipboard.
+  Note that information about markers and filter acceptance is not placed on the clipboard.<br><br>
+  <a name="FD_Paste"></a>
+  <div class=Function>Paste text from clipboard into the display</div>
+  Discards the current set of lines and displays the text on the clipboard after running the currently enabled filters on that text.
+  <br><br>
+  <a name="FD_Find"></a>
+  <div class=Function>Find the next occurrence of a string</div>
+  Finds the next occurrence of the specified text string, allowing you to optionally ignore case and/or match against a regular expression and/or search backwards.
+  <br><br>
+  <a name="FD_GoTo"></a>
+  <div class=Function>Set the current line to a specific line number</div>
+  Sets the current line to the specified line number, scrolling the display (if necessary) to bring the line into view.
+  <br><br>
+  <a name="FD_ShowOnlyFiltered"></a>
+  <div class=Function>Toggle showing/hiding of lines that do not meet the filter criteria</div>
+  Selects whether or not lines that do not meet the current filter criteria are displayed along with lines that do meet the criteria.
+  This toggle is useful to either remove unrelated lines from view or to show the context of a line that meets the filter criteria.
+  Note that the current line is unchanged whenever possible; otherwise it is kept near its previous location.
+  <br><br>
+  <a name="FD_AddFilter"></a>
+  <div class=Function>Add a filter</div>
+  Adds a new filter to the list of current filters and automatically enables the new filter.
+  This command brings up a dialog box that allows you to choose the type of the new filter and then an additional dialog box that allows you to configure the specific filter type.
+  <br><br>
+  <a name="FD_DisableFilters"></a>
+  <div class=Function>Disable all filters in the filter list</div>
+  Disables all filters (but does not change anything else).
+  <br><br>
+  <a name="FD_RemoveFilters"></a>
+  <div class=Function>Remove all filters from the filter list</div>
+  Removes all filters, emptying the filter list.
+  <br><br><br>
+  <a name="S_RegularExpressionSyntax"></a>
+  <div class=Heading>Regular Expression Syntax</div>
+  TextAnalysisTool's "Matches Regular Expression" filter uses Eric Niebler's RegExpr C++ classes to parse and handle regular expressions.
+  RegExpr supports the full Perl 5 syntax for regular expressions, so TextAnalysisTool's filter does as well.
+  Documentation for Perl 5 regular expression syntax is not available here, but is widely available via books and the Internet.
+  One particularly good web-site is the <a href="http://www.perl.com/pub/doc/manual/html/pod/perlre.html">Perl Regular Expressions</a> page on <a href="http://www.perl.com/">http://www.perl.com/</a>.
+  An excellent book reference is <a href="http://www.oreilly.com/catalog/pperl3/">Programming Perl, 3rd Edition</a> by <a href="http://www.oreilly.com/">O'Reilly & Associates, Inc.</a> (also known as "The Camel Book").
+  <br><br><br>
+  <a name="S_CommandLine"></a>
+  <div class=Heading>Command-Line Parameters</div>
+  <div class=Computer><nobr>TextAnalysisTool [TextFile] [/ConfigurationFile:ConfigFile]</nobr></div>
+  <span class=Computer>&nbsp;&nbsp;&nbsp;TextFile</span> - Name of the text file to open<br>
+  <span class=Computer>&nbsp;&nbsp;&nbsp;ConfigFile</span> - Name of the configuration file to open<br>
+  <br>
+  Example:<br>
+  <div class=Computer>TextAnalysisTool \Logs\MyLog.log /ConfigurationFile:"\Configs\MyConfig.tat"</div>
+  <br><br>
+  <a name="S_RegistrySettings"></a>
+  <div class=Heading>Registry Settings</div>
+  <table border=0>
+   <tr align=center> <td align=right><b>Value</b></td> <td>&nbsp;&nbsp;</td> <td><b>Type</b></td> <td>&nbsp;&nbsp;</td> <td><b>Default</b></td> <td>&nbsp;&nbsp;</td> <td align=left><b>Function</b></td></tr>
+   <tr align=center> <td align=right>GoToPositionPercent</td> <td></td> <td>DWORD</td> <td></td> <td><nobr>50 (0x2d)</nobr></td> <td></td> <td align=left>The percent of the way down the text display at which the current line should be positioned after a being set via a "Go To" command</td></tr>
+   <tr align=center> <td align=right>SplitterHeight</td> <td></td> <td>DWORD</td> <td></td> <td><nobr>7 (0x7)</nobr></td> <td></td> <td align=left>The height (in pixels) of the splitter bar</td></tr>
+   <tr align=center> <td align=right>TabWidth</td> <td></td> <td>DWORD</td> <td></td> <td><nobr>4 (0x4)</nobr></td> <td></td> <td align=left>The number of spaces corresponding to each Tab character</td></tr>
+   <tr align=center> <td align=right>TextFontPointSize</td> <td></td> <td>DWORD</td> <td></td> <td><nobr>10 (0xa)</nobr></td> <td></td> <td align=left>The height of the font (in points) used to display text</td></tr>
+   <tr align=center> <td align=right>WindowSplitPercent</td> <td></td> <td>DWORD</td> <td></td> <td><nobr>75 (0x4b)</nobr></td> <td></td> <td align=left>The percent of the TextAnalysisTool window used to display text (with the remaining portion of the window being used to display filters)</td></tr>
+   <tr align=center> <td align=right>WindowPositionState</td> <td></td> <td>DWORD</td> <td></td> <td><nobr>&times;</nobr></td> <td></td> <td align=left>Used to save and restore TextAnalysisTool's window position</td></tr>
+   <tr align=center> <td align=right>WindowPositionLeft</td> <td></td> <td>DWORD</td> <td></td> <td><nobr>&times;</nobr></td> <td></td> <td align=left>Used to save and restore TextAnalysisTool's window position</td></tr>
+   <tr align=center> <td align=right>WindowPositionTop</td> <td></td> <td>DWORD</td> <td></td> <td><nobr>&times;</nobr></td> <td></td> <td align=left>Used to save and restore TextAnalysisTool's window position</td></tr>
+   <tr align=center> <td align=right>WindowPositionRight</td> <td></td> <td>DWORD</td> <td></td> <td><nobr>&times;</nobr></td> <td></td> <td align=left>Used to save and restore TextAnalysisTool's window position</td></tr>
+   <tr align=center> <td align=right>WindowPositionBottom</td> <td></td> <td>DWORD</td> <td></td> <td><nobr>&times;</nobr></td> <td></td> <td align=left>Used to save and restore TextAnalysisTool's window position</td></tr>
+  </table>
+  <br>
+  All TextAnalysisTool registry settings are stored under the key <nobr><span class=Computer>HKEY_CURRENT_USER\Software\DavidAns\TextAnalysisTool</span></nobr><br>
+  <br><br>
+  <a name="S_FAQ"></a>
+  <div class=Heading>FAQ</div>
+  <ul>
+   <li>Why can't I load my friend's configuration file in my copy of TextAnalysisTool?<br>
+       Your friend is probably using a more recent version of TextAnalysisTool than you are.
+       New versions of TextAnalysisTool can read configuration files from all previous versions of the program, but previous versions of the program may not be able to read newer configuration files.</li>
+  </ul>
+  <br><br>
+  <a name="S_TipsTricks"></a>
+  <div class=Heading>Tips and Tricks</div>
+  <ul>
+   <li>TextAnalysisTool doesn't alter your filter settings when you paste text into it, so repeatedly pasting similar text is easy and efficient (e.g., after running a test application again).</li>
+   <li>TextAnalysisTool works great for viewing output from BUILD.EXE.</li>
+   <li>To copy multiple lines to the clipboard without having to use Ctrl+L to copy them all individually, mark them all with an unused marker, disable all filters, and add a filter for that marker type.
+       You should then be able to use Ctrl+C to copy all displayed lines to the clipboard.</li>
+  </ul>
+  <br><br>
+  <a name="S_PlannedFeatures"></a>
+  <div class=Heading>Planned Features</div>
+  None<br>
+  <br><br>
+  <a name="S_KnownIssues"></a>
+  <div class=Heading>Known Issues</div>
+  None<br>
+  <br><br>
+  <a name="S_BugReports"></a>
+  <div class=Heading>Bug Reports</div>
+  Please send email to me, David Anson (<a href="mailto:DavidAns@Microsoft.com">DavidAns@Microsoft.com</a>), with a detailed description of any problems you encounter.
+  Whenever possible, please include a file that demonstrates the problem.<br>
+  <br><br>
+  <i>Thanks and enjoy!!!</i>
+ </body>
+</html>
