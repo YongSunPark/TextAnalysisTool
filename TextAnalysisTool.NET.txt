@@ -49,12 +49,12 @@ Filters: Before displaying the lines of a file, TextAnalysisTool.NET passes the
 lines of that file through a set of user-defined filters, dimming or hiding all 
 lines that do not satisfy any of the filters.  Filters can select only the 
 lines that contain a sub-string, those that have been marked with a particular 
-marker type, or those that match a regular expression.  A color can be 
-associated with each filter so lines matching a particular filter stand out and 
-so lines matching different filters can be easily distinguished.  In addition 
-to the normal "including" filters that isolate lines of text you DO want to 
-see, there are also "excluding" filters that can be used to suppress lines you 
-do NOT want to see.  Excluding filters are configured just like including 
+marker type, or those that match a regular expression.  Text and background 
+colors can be associated with each filter so that lines matching a particular 
+filter stand out and lines matching different filters can be easily distinguished. 
+In addition to the normal "including" filters that isolate lines of text you DO 
+want to see, there are also "excluding" filters that can be used to suppress 
+lines you do NOT want to see.  Excluding filters are configured just like including 
 filters but are processed afterward and remove all matching lines from the set.  
 Excluding filters allow you to easily refine your search even further.
 
@@ -102,46 +102,70 @@ available from the Filter menu or from the context menu obtained by right-
 clicking on any filter.  Lines matching any of the first twenty-six filters can 
 be easily cycled through with the keyboard.
 
+Status Bar: The status bar at the bottom of the window contains information
+about the currently loaded file and some indicators about the current state of
+TextAnalysisTool.NET.
+
 
 Menus
 -----
 
 File
- Open...                   Opens and displays a file
- Reload                    Reloads the current file from disk
- Save Current Lines...     Saves the current lines to a new file
- Load Filters...           Loads a filter file (*.tat) and replaces the current
-                           filters
- Save Filters...           Saves the current filters to a filter file (*.tat)
- Exit                      Exits the application
+ Open...                          Opens and displays a file
+ Reload                           Reloads the current file from disk
+ Save Current Lines...            Saves the current lines to a new file
+ Load Filters...                  Loads a filter file (*.tat) and replaces the
+                                  current filters
+ Save Filters...                  Saves the current filters to a filter file
+                                  (*.tat)
+ Append to Existing Filters...    Loads a filter file (*.tat) and appends the
+                                  filters to the current filters
+ Recent Files                     A list of the most recently loaded files
+  Clear Recent Files List         Clears the list of most recently loaded files
+ Recent Filter Files              A list of the most recently loaded filter
+                                  files
+  Clear Recent Filter Files List  Clears the list of most recently loaded
+                                  filter files
+ Exit                             Exits the application
 
 Edit
- Copy                      Copies the currently selected line(s) to the
-                           clipboard
- Paste                     Displays all text currently on the clipboard
- Select All                Selects all lines
- Find...                   Finds the next match of a string or regular
-                           expression
- Find Previous             Repeats the last find operation (searching up) 
- Find Next                 Repeats the last find operation (searching down) 
- Go To...                  Scrolls to the specified line number
+ Copy                             Copies the currently selected line(s) to the
+                                  clipboard
+ Paste                            Displays all text currently on the clipboard
+ Select All                       Selects all lines
+ Find...                          Finds the next match of a string or regular
+                                  expression
+ Find Previous                    Repeats the last find operation (searching
+                                  up)
+ Find Next                        Repeats the last find operation (searching
+                                  down)
+ Go To...                         Scrolls to the specified line number
 
 View
- Show Only Filtered Lines  Toggles showing/hiding of lines that do not satisfy
-                           the currently active filters (note: the current line
-                           is preserved whenever possible; otherwise it is kept
-                           as near to its previous location as possible)
+ Show Only Filtered Lines         Toggles showing/hiding of lines that do not
+                                  satisfy the currently active filters (note:
+                                  the current line is preserved whenever
+                                  possible; otherwise it is kept as near to its
+                                  previous location as possible)
+ Show Markers
+  Always                          Always show the markers left of the text
+  Never                           Never show the markers left of the text
+  Only When In Use                Show the markers only when markers are defined
+ Zoom In                          Increases the font size
+ Zoom Out                         Decreases the font size
+ Reset Zoom                       Resets the font size to the default size
+
 Filter
- Add New Filter...         Adds a new filter of any type
- Edit Selected Filter...   Edits the selected filter
- Remove Selected Filter    Removes the selected filter
- Disable All Filters       Disables all filters
- Remove All Filters        Removes all filters
+ Add New Filter...                Adds a new filter of any type
+ Edit Selected Filter...          Edits the selected filter
+ Remove Selected Filter           Removes the selected filter
+ Disable All Filters              Disables all filters
+ Remove All Filters               Removes all filters
 
 Help
- Documentation             Loads the documentation file
- Installed plug-ins        Displays information about installed plug-ins
- About                     Displays version information
+ Documentation                    Loads the documentation file
+ Installed plug-ins               Displays information about installed plug-ins
+ About                            Displays version information
 
 
 Line Display Keys
@@ -162,6 +186,17 @@ Filter Display Keys
 
 Space   Toggles the selected filter on and off
 Delete  Removes the selected filter
+
+
+Status Bar Indicators
+---------------------
+
+Funnel Icon   Indicates that the "Shown Only Filtered Lines" menu option is
+              currently selected
+Sel           Indicates the number of lines selected in the line display
+Fil           Indicates the number of filtered lines
+Total         Indicates the total number of lines
+Zoom Percent  Indicates the currently used zoom value for the font size
 
 
 -----------------------
@@ -238,23 +273,30 @@ You can customize certain aspects of the user interface by adding any of the
 following registry values:
 
 HKEY_CURRENT_USER\Software\DavidAns\TextAnalysisTool.NET
-   TabSize               DWORD   Character width of each Tab character ('\t')
-   FontSize              DWORD   Point size of text in the line display
-   WindowTextColor    }  DWORD   0x00rrggbb color specification for the
-   GrayTextColor      }          associated elements of the line display (note:
-   HighlightTextColor }          specifying a custom color overrides the normal
-   WindowColor        }          behavior of using the default system color)
+   TabSize                DWORD   Character width of each Tab character ('\t')
+   FontSize               STRING  Point size of text in the line display
+   ShowMarkersColumn      STRING  When to show the markers column next to the
+                                  lines of text. Valid values: Always, Never,
+                                  WhenInUse
+   BeepOnSearchEnd        DWORD   If set to non-zero, will play a beep when the
+                                  search loops around the document
+   WindowTextColor    }   DWORD   0x00rrggbb color specification for the
+   GrayTextColor      }           associated elements of the line display (note:
+   GrayBackgroundColor}           specifying a custom color overrides the normal
+   HighlightTextColor }           behavior of using the default system color)
+   WindowColor        }
    HighlightColor     }
-
+   MaxNumberOfRecentItems DWORD   Maximum number of recent files or recent
+                                  filter files displayed in the corresponding
+                                  File menus. The default value is 5.
 
 --------------------------
 -- Section: Bug Reports --
 --------------------------
 
-Please send email to DavidAns@Microsoft.com (David Anson), with a detailed 
-description of any problems you encounter.  Whenever possible, please include a 
-file demonstrating the problem.
+Please create an issue at https://github.com/TextAnalysisTool/Releases/issues
+with a detailed description of any problem you encounter.  Whenever possible,
+please include a file demonstrating the problem.
 
 
 Thanks and enjoy!!!
-
