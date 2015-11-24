@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<TextAnalysisTool.NET version="2015-01-07" showOnlyFilteredLines="False">
+  <filters>
+    <filter enabled="n" excluding="n" backColor="dcdcdc" type="matches_text" case_sensitive="n" regex="n" text="Status: 0x00" />
+    <filter enabled="n" excluding="n" backColor="ff0000" type="matches_text" case_sensitive="n" regex="y" text="Status: 0x[0-F]+" />
+    <filter enabled="n" excluding="n" backColor="dcdcdc" type="matches_text" case_sensitive="n" regex="n" text=" [ZCL] LevelControl_Run()" />
+    <filter enabled="y" excluding="n" backColor="ffa500" type="matches_text" case_sensitive="n" regex="n" text="ZHA_ChangeNextState" />
+  </filters>
+</TextAnalysisTool.NET>
